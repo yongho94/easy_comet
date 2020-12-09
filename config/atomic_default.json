@@ -1,0 +1,51 @@
+{
+  "random_seed": 2020,
+  "max_s": 20,
+  "max_r": 2,
+  "max_o": 20,
+  "tb_period": 100,
+  "bpe_encoder": "data/model_data/encoder_bpe_40000.json",
+  "bpe_vocab": "data/model_data/vocab_40000.bpe",
+  "train_path": ["data/atomic/raw/v4_atomic_trn.csv"],
+  "dev_path": ["data/atomic/raw/v4_atomic_dev.csv"],
+  "test_path": ["data/atomic/raw/v4_atomic_tst.csv"],
+  "target_path": "data/atomic/dataset",
+
+  "gen": {
+    "topk_size": 10,
+    "beam_size": 1,
+    "gen_seqlength": 40,
+    "sample_method": "greedy"
+  },
+
+  "train": {
+    "init_lr": 0,
+    "max_lr": 6.25e-05,
+    "warmup_steps": 100,
+    "clip": 1.0,
+    "l2": 0.01,
+    "loss": "nll",
+    "batch_size": 64,
+    "weight_decay": 0
+  },
+
+  "model": {
+    "pos_vocab_num": 512,
+    "hidden": 768,
+    "num_layers": 12,
+    "num_heads": 12,
+    "emb_dropout": 0.1,
+    "att_dropout": 0.1,
+    "res_dropout": 0.1,
+    "out_dropout": 0.1,
+    "activation": "gelu"
+  },
+
+  "start_token": "<START>",
+  "end_token": "<END>",
+  "blank_token": "<BLANK>",
+
+  "relations" : [
+    "oEffect", "oReact", "oWant", "xAttr", "xEffect",
+    "xIntent", "xNeed", "xReact", "xWant" ]
+}

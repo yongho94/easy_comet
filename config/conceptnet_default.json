@@ -1,0 +1,95 @@
+{
+  "random_seed": 2020,
+  "max_s": 10,
+  "max_r": 5,
+  "max_o": 10,
+  "tb_period": 100,
+  "bpe_encoder": "data/model_data/encoder_bpe_40000.json",
+  "bpe_vocab": "data/model_data/vocab_40000.bpe",
+  "train_path": ["data/conceptnet/raw/train100k.txt"],
+  "dev_path": ["data/conceptnet/raw/dev1.txt", "data/conceptnet/raw/dev2.txt"],
+  "test_path": ["data/conceptnet/raw/test.txt"],
+  "target_path": "data/conceptnet/dataset",
+  "rel": "language",
+
+  "gen": {
+    "topk_size": 10,
+    "beam_size": 1,
+    "gen_seqlength": 40,
+    "sample_method": "greedy"
+  },
+
+  "train": {
+    "init_lr": 0,
+    "max_lr": 1e-05,
+    "warmup_steps": 2000,
+    "clip": 1.0,
+    "l2": 0.01,
+    "loss": "nll",
+    "batch_size": 64,
+    "weight_decay": 0
+  },
+
+  "model": {
+    "pos_vocab_num": 512,
+    "hidden": 768,
+    "num_layers": 12,
+    "num_heads": 12,
+    "emb_dropout": 0.1,
+    "att_dropout": 0.1,
+    "res_dropout": 0.1,
+    "out_dropout": 0.1,
+    "activation": "gelu"
+  },
+
+  "start_token": "<START>",
+  "end_token": "<END>",
+  "blank_token": "<BLANK>",
+
+  "split_into_words": {
+    "AtLocation": "at location",
+    "CapableOf": "capable of",
+    "Causes": "causes",
+    "CausesDesire": "causes desire",
+    "CreatedBy": "created by",
+    "DefinedAs": "defined as",
+    "DesireOf": "desire of",
+    "Desires": "desires",
+    "HasA": "has a",
+    "HasFirstSubevent": "has first subevent",
+    "HasLastSubevent": "has last subevent",
+    "HasPainCharacter": "has pain character",
+    "HasPainIntensity": "has pain intensity",
+    "HasPrerequisite": "has prequisite",
+    "HasProperty": "has property",
+    "HasSubevent": "has subevent",
+    "InheritsFrom": "inherits from",
+    "InstanceOf": "instance of",
+    "IsA": "is a",
+    "LocatedNear": "located near",
+    "LocationOfAction": "location of action",
+    "MadeOf": "made of",
+    "MotivatedByGoal": "motivated by goal",
+    "NotCapableOf": "not capable of",
+    "NotDesires": "not desires",
+    "NotHasA": "not has a",
+    "NotHasProperty": "not has property",
+    "NotIsA": "not is a",
+    "NotMadeOf": "not made of",
+    "PartOf": "part of",
+    "ReceivesAction": "receives action",
+    "RelatedTo": "related to",
+    "SymbolOf": "symbol of",
+    "UsedFor": "used for"
+  },
+  "relations" : [
+    "AtLocation", "CapableOf", "Causes", "CausesDesire", "CreatedBy",
+    "DefinedAs", "DesireOf", "Desires", "HasA", "HasFirstSubevent",
+    "HasLastSubevent", "HasPainCharacter", "HasPainIntensity",
+    "HasPrerequisite", "HasProperty", "HasSubevent", "InheritsFrom",
+    "InstanceOf", "IsA", "LocatedNear", "LocationOfAction", "MadeOf",
+    "MotivatedByGoal", "NotCapableOf", "NotDesires", "NotHasA",
+    "NotHasProperty", "NotIsA", "NotMadeOf", "PartOf", "ReceivesAction",
+    "RelatedTo", "SymbolOf", "UsedFor"
+  ]
+}
